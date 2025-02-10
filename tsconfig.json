@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "./src/",
+    "checkJs": false,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "paths": {
+      "@/assets": ["assets"],
+      "@/components/*": ["components/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/i18n": ["i18n"],
+      "@/services/*": ["services/*"],
+      "@/stores/*": ["stores/*"],
+      "@/utils/*": ["utils/*"]
+    },
+    "strictNullChecks": true
+  },
+  "exclude": ["node_modules"],
+  "extends": "expo/tsconfig.base"
+}

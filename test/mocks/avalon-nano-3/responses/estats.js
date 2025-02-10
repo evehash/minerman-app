@@ -1,0 +1,61 @@
+export default "STATUS=S,\
+When=1731789214,\
+Code=70,\
+Msg=CGMiner stats,\
+Description=cgminer 4.11.1\
+|STATS=0,\
+ID=AVANANO0,Elapsed=179130,\
+Calls=0,\
+Wait=0.000000,\
+Max=0.000000,\
+Min=99999999.000000,\
+MM ID0=HashStatus[1] \
+Ver[nano3-24071801_42c628d] \
+HVer[24071801_b906c52_6223725]  \
+DNA[0000000000000000]  \
+HDNA[020100003acc98ba]  \
+PFCnt[0] \
+NETFAIL[0 0 0 0 0 0 0 0] \
+Elapsed[179142] \
+LW[4472106] \
+MH[138] \
+DHW[0] \
+HW[138] \
+DH[2.084%] \
+Temp[46] \
+OTemp[43] \
+TMax[92] \
+TAvg[90] \
+TarT[90] \
+Fan1[5100] \
+FanR[67%] \
+Vo[0] \
+PS[0 0 0 4 2612 126 330] \
+GHSspd[4098.15] \
+DHspd[2.084%] \
+GHSmm[4188.08] \
+GHSavg[3895.33] \
+WU[54417.10] \
+Freq[0.00] \
+Led[0] \
+MGHS[3895.33] \
+MTmax[92] \
+MTavg[90] \
+TA[10] \
+Core[A3198S] \
+PING[207] \
+SoftOFF[0] \
+ECHU[0] \
+ECMM[0] \
+PLL0[0 361 725 684] \
+SF0[100 568 588 608] \
+PVT_T0[ 91  92  92  92  91  85  89  89  92  88] \
+PVT_V0[316 309 314 313 314 309 312 311 312 313] \
+MW0[5316 5268 5252 5206 5205 5370 5285 5298 5252 5313] \
+CRC[0] ATA0[60-80-304-100:293:313:333] \
+ATA1[90-85-308-100:459:479:499] \
+ATA2[125-90-330-100:568:588:608] \
+WORKLEVEL[2] \
+MPO[125] \
+ADJ[1],\
+MM Count=1,Nonce Mask=1|";
