@@ -1,3 +1,3 @@
-import MinersScreen from "@/components/templates/miners/MinersScreen";
+import { MinersScreen } from "@/components/templates/miners/MinersScreen";
 
 export default MinersScreen;

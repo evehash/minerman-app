@@ -11,14 +11,13 @@ import { FlatList, StyleSheet, View } from "react-native";
 function MinersScreen(): ReactElement {
   const theme = useTheme();
   const { miners } = useMiners();
-
-  const [isEditing, toggleEditing] = useToggle(false);
+  const [editing, toggleEditing] = useToggle(false);
 
   const renderMiner: ListRenderItem<Miner> = ({ item, index }) => (
     <MinerCard
       key={item.ip}
       miner={item}
-      edition={{ isEditing, toggleEditing }}
+      edition={{ editing, toggleEditing }}
       position={{ index, total: miners.length }}
     />
   );
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MinersScreen;
+export { MinersScreen };

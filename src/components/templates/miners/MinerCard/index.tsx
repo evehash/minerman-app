@@ -5,7 +5,6 @@ import useGetMinerInfo from "@/hooks/useGetMinerInfo";
 import useSwarm from "@/hooks/useSwarm";
 import useTheme from "@/hooks/useTheme";
 import useToggle from "@/hooks/useToggle";
-import useWiggleAnimation from "@/hooks/useWiggleAnimation";
 import type { Miner } from "@/stores/minersSlice";
 import { MaterialCommunityIcons } from "@expo/vector-icons"; // Asegúrate de tener instalada la librería de iconos
 import { impactAsync, ImpactFeedbackStyle } from "expo-haptics";
@@ -18,7 +17,7 @@ import MinerEditPanel from "./MinerEditPanel";
 import MinerInfoPanel from "./MinerInfoPanel";
 
 interface EditionProps {
-  isEditing: boolean;
+  editing: boolean;
   toggleEditing(): void;
 }
 
@@ -32,13 +31,12 @@ function MinerCard({ miner, edition, position }: MinerCardProps): ReactElement {
   const theme = useTheme();
   const { updateMiner } = useSwarm();
 
-  const { wigglingStyle, startWiggling, stopWiggling } = useWiggleAnimation({ animationSeed: position.index });
-  const { isEditing, toggleEditing } = edition;
+  const { editing, toggleEditing } = edition;
 
   const { data, isLoading, error } = useGetMinerInfo({ miner });
 
   useEffect(() => {
-    if (data !== null && !isEditing) {
+    if (data !== null && !editing) {
       updateMiner({
         ...data,
         ip: miner.ip,
@@ -52,7 +50,7 @@ function MinerCard({ miner, edition, position }: MinerCardProps): ReactElement {
 
   const handlePress = (): void => {
     impactAsync(ImpactFeedbackStyle.Soft);
-    if (isEditing) {
+    if (editing) {
       toggleEditing();
       return;
     }
@@ -67,7 +65,7 @@ function MinerCard({ miner, edition, position }: MinerCardProps): ReactElement {
   console.log(error);
   return (
     <TouchableOpacity onPress={handlePress} onLongPress={handleLongPress} activeOpacity={1}>
-      <Animated.View key={miner.ip} style={[styles.container, { backgroundColor: theme.surfaceColor }, wigglingStyle]}>
+      <Animated.View key={miner.ip} style={[styles.container, { backgroundColor: theme.surfaceColor }]}>
         <View style={styles.row}>
           <MinerInfoPanel isLoading={isLoading} data={data} error={error} />
           <View style={styles.chevron}>
@@ -79,7 +77,7 @@ function MinerCard({ miner, edition, position }: MinerCardProps): ReactElement {
           </View>
         </View>
         <MinerActionPanel miner={miner} isExpanded={isExpanded} />
-        <MinerEditPanel isVisible={isEditing} miner={miner} position={position} />
+        <MinerEditPanel isVisible={editing} miner={miner} position={position} />
       </Animated.View>
     </TouchableOpacity>
   );
